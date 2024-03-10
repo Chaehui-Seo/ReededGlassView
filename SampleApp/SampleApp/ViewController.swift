@@ -31,12 +31,16 @@ class ViewController: UIViewController {
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
         let selectedIndex = segment.selectedSegmentIndex
         reededGlassView.setWidthType(to: selectedIndex == 0 ? .narrow :
-                                        selectedIndex == 1 ? .default : .wide)
+                                         selectedIndex == 1 ? .default : .wide) {
+            // Effect Applying completed
+        }
     }
     
     @IBAction func imageShuffleButtonDidTap(_ sender: Any) {
         targetImageView.image = UIImage(named: imageNames.randomElement() ?? "")
-        reededGlassView.setReededGlassEffect(with: targetImageView)
+        reededGlassView.setReededGlassEffect(with: targetImageView) {
+            // Effect Applying completed
+        }
     }
 }
 
