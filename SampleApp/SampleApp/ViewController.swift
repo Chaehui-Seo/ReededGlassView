@@ -11,6 +11,15 @@ import ReededGlassEffectView
 class ViewController: UIViewController {
     @IBOutlet weak var targetImageView: UIImageView!
     @IBOutlet weak var reededGlassView: ReededGlassView!
+    private lazy var activitiIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.large
+        activityIndicator.stopAnimating()
+        return activityIndicator
+    }()
     
     let imageNames = ["katsiaryna-endruszkiewicz-unsplash",
                       "alrick-gillard-unsplash",
@@ -25,21 +34,30 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(activitiIndicator)
         reededGlassView.setReededGlassEffect(with: targetImageView)
     }
 
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
-        let selectedIndex = segment.selectedSegmentIndex
-        reededGlassView.setWidthType(to: selectedIndex == 0 ? .narrow :
-                                         selectedIndex == 1 ? .default : .wide) {
-            // Effect Applying completed
+        activitiIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let selectedIndex = segment.selectedSegmentIndex
+            self.reededGlassView.setWidthType(to: selectedIndex == 0 ? .narrow :
+                                                  selectedIndex == 1 ? .default : .wide) {
+                // Effect Applying completed
+                self.activitiIndicator.stopAnimating()
+            }
         }
     }
     
     @IBAction func imageShuffleButtonDidTap(_ sender: Any) {
-        targetImageView.image = UIImage(named: imageNames.randomElement() ?? "")
-        reededGlassView.setReededGlassEffect(with: targetImageView) {
-            // Effect Applying completed
+        activitiIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.targetImageView.image = UIImage(named: self.imageNames.randomElement() ?? "")
+            self.reededGlassView.setReededGlassEffect(with: self.targetImageView) {
+                // Effect Applying completed
+                self.activitiIndicator.stopAnimating()
+            }
         }
     }
 }
