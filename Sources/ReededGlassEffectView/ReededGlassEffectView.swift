@@ -120,7 +120,7 @@ public class ReededGlassView: UIView {
         gradientLayer.frame = CGRect(x: 0, y: 0, width: croppedImageView.frame.width, height: croppedImageView.frame.height)
         let colors: [CGColor] = [
             .init(red: 0, green: 0, blue: 0, alpha: 0.3),
-            .init(red: 1, green: 1, blue: 1, alpha: 0.4),
+            .init(red: 1, green: 1, blue: 1, alpha: 0.3),
             .init(red: 1, green: 1, blue: 1, alpha: 0),
             .init(red: 0, green: 0, blue: 0, alpha: 0),
             .init(red: 0, green: 0, blue: 0, alpha: 0.2)
