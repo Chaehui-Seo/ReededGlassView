@@ -13,6 +13,7 @@
 		EF91D00F2B9DEA1A008054E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF91D00D2B9DEA1A008054E8 /* Main.storyboard */; };
 		EF91D0112B9DEA1C008054E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF91D0102B9DEA1C008054E8 /* Assets.xcassets */; };
 		EF91D0142B9DEA1C008054E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF91D0122B9DEA1C008054E8 /* LaunchScreen.storyboard */; };
+		EF91D01F2B9DEA61008054E8 /* ReededGlassEffectView in Frameworks */ = {isa = PBXBuildFile; productRef = EF91D01E2B9DEA61008054E8 /* ReededGlassEffectView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EF91D0102B9DEA1C008054E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF91D0132B9DEA1C008054E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF91D0152B9DEA1C008054E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF91D01C2B9DEA4D008054E8 /* ReededGlassEffectView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ReededGlassEffectView; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF91D01F2B9DEA61008054E8 /* ReededGlassEffectView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +43,10 @@
 		EF91CFFB2B9DEA1A008054E8 = {
 			isa = PBXGroup;
 			children = (
+				EF91D01B2B9DEA4D008054E8 /* Packages */,
 				EF91D0062B9DEA1A008054E8 /* SampleApp */,
 				EF91D0052B9DEA1A008054E8 /* Products */,
+				EF91D01D2B9DEA61008054E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,21 @@
 			path = SampleApp;
 			sourceTree = "<group>";
 		};
+		EF91D01B2B9DEA4D008054E8 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				EF91D01C2B9DEA4D008054E8 /* ReededGlassEffectView */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		EF91D01D2B9DEA61008054E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +103,9 @@
 			dependencies = (
 			);
 			name = SampleApp;
+			packageProductDependencies = (
+				EF91D01E2B9DEA61008054E8 /* ReededGlassEffectView */,
+			);
 			productName = SampleApp;
 			productReference = EF91D0042B9DEA1A008054E8 /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +381,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF91D01E2B9DEA61008054E8 /* ReededGlassEffectView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ReededGlassEffectView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF91CFFC2B9DEA1A008054E8 /* Project object */;
 }
