@@ -1,10 +1,10 @@
 import UIKit
 
-class ReededGlassView: UIView {
+public class ReededGlassView: UIView {
     /**
      Width type that applied to each reeded glass view
      */
-    enum WidthType: CGFloat {
+    public enum WidthType: CGFloat {
         case narrow = 20
         case `default` = 35
         case wide = 50

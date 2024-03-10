@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="katsiaryna-endruszkiewicz-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="JTF-dZ-PBD">
+                                <rect key="frame" x="0.0" y="89" width="393" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="qhL-FK-M2m"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-6v-K6D">
+                                <rect key="frame" x="101" y="612" width="191" height="32"/>
+                                <segments>
+                                    <segment title="Narrow"/>
+                                    <segment title="Default"/>
+                                    <segment title="Wide"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChangedWithSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="af7-vf-SYX"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwn-td-xBo">
+                                <rect key="frame" x="131.66666666666666" y="683" width="129.99999999999997" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Image Shuffle"/>
+                                <connections>
+                                    <action selector="imageShuffleButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ib9-yF-Ra0"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-um-iZE" customClass="ReededGlassView" customModule="ReededGlassEffectView">
+                                <rect key="frame" x="60" y="159" width="273" height="160"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Iwn-td-xBo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0wD-Ok-HV5"/>
+                            <constraint firstItem="7nb-6v-K6D" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Rw-Gp-TJ9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iwn-td-xBo" secondAttribute="bottom" constant="100" id="A4B-aX-pdX"/>
+                            <constraint firstItem="aIh-um-iZE" firstAttribute="top" secondItem="JTF-dZ-PBD" secondAttribute="top" constant="70" id="Mbd-bY-cSX"/>
+                            <constraint firstItem="aIh-um-iZE" firstAttribute="centerX" secondItem="JTF-dZ-PBD" secondAttribute="centerX" id="OrO-Zu-Ra5"/>
+                            <constraint firstItem="JTF-dZ-PBD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="bak-Ro-LmJ"/>
+                            <constraint firstItem="aIh-um-iZE" firstAttribute="centerY" secondItem="JTF-dZ-PBD" secondAttribute="centerY" id="ifJ-zT-j4D"/>
+                            <constraint firstItem="JTF-dZ-PBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rhx-p4-R6W"/>
+                            <constraint firstItem="Iwn-td-xBo" firstAttribute="top" secondItem="7nb-6v-K6D" secondAttribute="bottom" constant="40" id="sI5-9u-V3B"/>
+                            <constraint firstItem="JTF-dZ-PBD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uzl-IE-1uP"/>
+                            <constraint firstItem="aIh-um-iZE" firstAttribute="leading" secondItem="JTF-dZ-PBD" secondAttribute="leading" constant="60" id="xZe-wj-t4V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="reededGlassView" destination="aIh-um-iZE" id="yxf-2N-pNk"/>
+                        <outlet property="targetImageView" destination="JTF-dZ-PBD" id="xAh-jj-cqD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="50" y="4"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="katsiaryna-endruszkiewicz-unsplash" width="3849" height="5774"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
