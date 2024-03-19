@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "ReededGlassEffectView",
+    name: "ReededGlassView",
     platforms: [
         .iOS(.v13)
     ],
     products: [
         .library(
-            name: "ReededGlassEffectView",
-            targets: ["ReededGlassEffectView"]),
+            name: "ReededGlassView",
+            targets: ["ReededGlassView"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "ReededGlassEffectView",
+            name: "ReededGlassView",
             dependencies: []),
         .testTarget(
-            name: "ReededGlassEffectViewTests",
-            dependencies: ["ReededGlassEffectView"]),
+            name: "ReededGlassViewTests",
+            dependencies: ["ReededGlassView"]),
     ]
 )

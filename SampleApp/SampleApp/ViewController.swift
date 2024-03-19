@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ReededGlassEffectView
+import ReededGlassView
 
 class ViewController: UIViewController {
     @IBOutlet weak var targetImageView: UIImageView!

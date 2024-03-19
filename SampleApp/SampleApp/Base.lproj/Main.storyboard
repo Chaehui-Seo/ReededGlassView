@@ -42,7 +42,7 @@
                                     <action selector="imageShuffleButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ib9-yF-Ra0"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-um-iZE" customClass="ReededGlassView" customModule="ReededGlassEffectView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-um-iZE" customClass="ReededGlassView" customModule="ReededGlassView">
                                 <rect key="frame" x="60" y="159" width="273" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
