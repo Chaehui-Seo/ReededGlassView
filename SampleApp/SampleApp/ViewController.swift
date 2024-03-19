@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         return activityIndicator
     }()
     
+    // Sample images are downloaded via unsplash.com
     let imageNames = ["katsiaryna-endruszkiewicz-unsplash",
                       "alrick-gillard-unsplash",
                       "aiony-haust-unsplash",
