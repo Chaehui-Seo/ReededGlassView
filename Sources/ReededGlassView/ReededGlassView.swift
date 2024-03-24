@@ -122,16 +122,15 @@ public class ReededGlassView: UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: croppedImageView.frame.width, height: croppedImageView.frame.height)
         let colors: [CGColor] = [
-            .init(red: 0, green: 0, blue: 0, alpha: 0.3),
+            .init(red: 0, green: 0, blue: 0, alpha: 0.2),
             .init(red: 1, green: 1, blue: 1, alpha: 0.3),
-            .init(red: 1, green: 1, blue: 1, alpha: 0),
-            .init(red: 0, green: 0, blue: 0, alpha: 0),
+            .init(red: 1, green: 1, blue: 1, alpha: 0.05),
             .init(red: 0, green: 0, blue: 0, alpha: 0.2)
         ]
         gradientLayer.colors = colors
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer.locations = [0.0, 0.2, 0.7, 0.8, 1.0]
+        gradientLayer.locations = [0.05, 0.25, 0.75, 1.0]
         croppedImageView.layer.addSublayer(gradientLayer)
         croppedImageView.tag = 999 // Add tag to delete the views when re-applying the effect
         
