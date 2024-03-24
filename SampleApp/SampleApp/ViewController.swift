@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         return activityIndicator
     }()
     
+    var currentImageName = "katsiaryna-endruszkiewicz-unsplash"
+    
     // Sample images are downloaded via unsplash.com
     let imageNames = ["katsiaryna-endruszkiewicz-unsplash",
                       "alrick-gillard-unsplash",
@@ -54,7 +56,9 @@ class ViewController: UIViewController {
     @IBAction func imageShuffleButtonDidTap(_ sender: Any) {
         activitiIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.targetImageView.image = UIImage(named: self.imageNames.randomElement() ?? "")
+            let newImage = self.imageNames.filter{ $0 != self.currentImageName}.randomElement() ?? ""
+            self.currentImageName = newImage
+            self.targetImageView.image = UIImage(named: self.currentImageName)
             self.reededGlassView.setReededGlassEffect(with: self.targetImageView) {
                 // Effect Applying completed
                 self.activitiIndicator.stopAnimating()
