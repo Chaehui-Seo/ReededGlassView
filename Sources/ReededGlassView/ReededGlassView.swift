@@ -113,7 +113,7 @@ public class ReededGlassView: UIView {
         view.addSubview(image)
         
         let croppedImage = makeImage(from: view) // get UIImage from the view
-        let temp = appleGaussianBlur(toImage: croppedImage, radius: 5) ?? UIImage()
+        let temp = appleGaussianBlur(toImage: croppedImage, radius: 7) ?? UIImage()
         let croppedImageView = UIImageView(image: temp)
         croppedImageView.contentMode = .scaleToFill
         croppedImageView.frame = CGRect(x: xPosition, y: 0, width: width, height: self.frame.height + 5)
