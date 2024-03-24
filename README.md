@@ -1,2 +1,2 @@
 # ReededGlassView
-![reededGlassViewImage](https://github.com/Chaehui-Seo/ReededGlassView/assets/73422344/e390227d-0d68-4881-9864-bac87136590a)
+![reededGlassFrontImage](https://github.com/Chaehui-Seo/ReededGlassView/assets/73422344/cde7c70f-77b1-4a82-8e27-c36a228735cb)
