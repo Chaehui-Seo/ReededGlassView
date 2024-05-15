@@ -32,8 +32,7 @@ class ViewController: UIViewController {
                       "gabriel-silverio-unsplash",
                       "albert-dera-unsplash",
                       "kimson-doan-unsplash",
-                      "jurica-koletic-unsplash",
-                      "clem-onojeghuo-unsplash"]
+                      "jurica-koletic-unsplash"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
