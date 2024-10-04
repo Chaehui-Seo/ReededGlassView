@@ -82,24 +82,21 @@ public class ReededGlassView: UIView {
         //      - X point = xPosition + glassWidth
         //      - Width = glassWidth / 2
         
-        // To apply gaussian blur, we need some extra space in the start and end of the view. 30 pixels are for this extra space.
-        var shrinkImageXPosition: CGFloat = 30 // extra space for gaussian blur
+        var shrinkImageXPosition: CGFloat = 0 // xPosition relative to 'self'
         var shrinkImageWidth: CGFloat = width * 2
         
-        let ImageMaxX = targetImageView.frame.maxX - 30 // extra space for gaussian blur
-        
-        if self.frame.minX + xPosition + (width) >= ImageMaxX {
+        if self.frame.minX + xPosition + (width) > targetImageView.frame.maxX {
             // CASE 1) Unable to get entire C section, and partial B section.
             // Modify A section's width to glassWidth.
             shrinkImageXPosition = xPosition - (width)
-            shrinkImageWidth = ImageMaxX - shrinkImageXPosition
-        } else if self.frame.minX + xPosition - (width / 2) >= 30 {
+            shrinkImageWidth = targetImageView.frame.maxX - self.frame.minX - shrinkImageXPosition
+        } else if self.frame.minX + xPosition - (width / 2) >= targetImageView.frame.minX {
             // CASE 2) Basic case. Able to get entire A, B, C sections.
             shrinkImageXPosition = xPosition - (width / 2)
         } else {
             // CASE 3) Unable to get partial A section
-            shrinkImageXPosition = 30
-            shrinkImageWidth = (width * 2) - 30
+            shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX
+            shrinkImageWidth = -(targetImageView.frame.minX - self.frame.minX) + (width * 2)
         }
         
         let view = UIView(frame: CGRect(x: shrinkImageXPosition, y: 0, width: shrinkImageWidth, height: self.frame.height)) // view to crop the copied imageView below
