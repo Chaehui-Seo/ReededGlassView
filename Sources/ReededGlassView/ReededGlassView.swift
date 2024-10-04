@@ -19,10 +19,9 @@ public class ReededGlassView: UIView {
         - type: width type for each reeded glass views (narrow, default, wide)
      */
     public func setWidthType(to type: WidthType, completion: (() -> Void)? = nil) {
-        self.widthType = type
         guard let targetImageView = targetImageView else { return }
         // if targetImage exists (effect has applied before), apply reeded glass effect again to update width type
-        self.setReededGlassEffect(with: targetImageView) {
+        self.setReededGlassEffect(with: targetImageView, widthType: type) {
             completion?()
         }
     }
@@ -32,7 +31,10 @@ public class ReededGlassView: UIView {
      - parameters:
         - imageView: UIImageView that you want to apply the reeded glass effect below
      */
-    public func setReededGlassEffect(with imageView: UIImageView, completion: (() -> Void)? = nil) {
+    public func setReededGlassEffect(with imageView: UIImageView,
+                                     widthType: WidthType = .default,
+                                     completion: (() -> Void)? = nil) {
+        self.widthType = widthType
         self.subviews.forEach {
             // Remove subviews added via this method before
             if $0.tag == 999 {
