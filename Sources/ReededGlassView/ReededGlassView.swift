@@ -92,7 +92,7 @@ public class ReededGlassView: UIView {
         } else {
             if self.frame.minX + xPosition - (width / 2) < targetImageView.frame.minX {
                 // CASE 2) Unable to get partial A section
-                shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX
+                shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX // minX of imageView relative to 'self'
             } else {
                 // CASE 3) Unable to get partial C section, and partial B section.
                 let remainedWidth = shrinkImageWidth - (targetImageView.frame.maxX - (self.frame.minX + xPosition))
