@@ -83,20 +83,22 @@ public class ReededGlassView: UIView {
         //      - Width = glassWidth / 2
         
         var shrinkImageXPosition: CGFloat = 0 // xPosition relative to 'self'
-        var shrinkImageWidth: CGFloat = width * 2
-        
-        if self.frame.minX + xPosition + (width) > targetImageView.frame.maxX {
-            // CASE 1) Unable to get entire C section, and partial B section.
-            // Modify A section's width to glassWidth.
-            shrinkImageXPosition = xPosition - (width)
-            shrinkImageWidth = targetImageView.frame.maxX - self.frame.minX - shrinkImageXPosition
-        } else if self.frame.minX + xPosition - (width / 2) >= targetImageView.frame.minX {
-            // CASE 2) Basic case. Able to get entire A, B, C sections.
+        let shrinkImageWidth: CGFloat = width * 2
+ 
+        if self.frame.minX + xPosition - (width / 2) >= targetImageView.frame.minX
+            && self.frame.minX + xPosition + (width) + (width / 2) <= targetImageView.frame.maxX {
+            // CASE 1) Basic case. Able to get entire A, B, C sections.
             shrinkImageXPosition = xPosition - (width / 2)
         } else {
-            // CASE 3) Unable to get partial A section
-            shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX
-            shrinkImageWidth = -(targetImageView.frame.minX - self.frame.minX) + (width * 2)
+            if self.frame.minX + xPosition - (width / 2) < targetImageView.frame.minX {
+                // CASE 2) Unable to get partial A section
+                shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX
+            } else {
+                // CASE 3) Unable to get partial C section, and partial B section.
+                let remainedWidth = shrinkImageWidth - (targetImageView.frame.maxX - self.frame.maxX)
+                shrinkImageXPosition = xPosition + width - remainedWidth
+                
+            }
         }
         
         let view = UIView(frame: CGRect(x: shrinkImageXPosition, y: 0, width: shrinkImageWidth, height: self.frame.height)) // view to crop the copied imageView below
