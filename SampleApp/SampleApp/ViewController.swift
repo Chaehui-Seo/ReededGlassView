@@ -22,17 +22,14 @@ class ViewController: UIViewController {
     }()
     
     var currentImageName = "katsiaryna-endruszkiewicz-unsplash"
+    var currentWidthIndex = 1
     
     // Sample images are downloaded via unsplash.com
     let imageNames = ["katsiaryna-endruszkiewicz-unsplash",
-                      "alrick-gillard-unsplash",
                       "aiony-haust-unsplash",
-                      "dom-hill-unsplash",
-                      "alexander-krivitskiy-unsplash",
-                      "gabriel-silverio-unsplash",
-                      "albert-dera-unsplash",
-                      "kimson-doan-unsplash",
-                      "jurica-koletic-unsplash"]
+                      "cemrecan-yurtman-MQO_7joYVOM-unsplash",
+                      "sq-lim-RPT9QxdL1IM-unsplash",
+                      "musa-ortac-GXFhhbKZhaY-unsplash"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +40,9 @@ class ViewController: UIViewController {
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
         activitiIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let selectedIndex = segment.selectedSegmentIndex
-            self.reededGlassView.setWidthType(to: selectedIndex == 0 ? .narrow :
-                                                  selectedIndex == 1 ? .default : .wide) {
+            self.currentWidthIndex = segment.selectedSegmentIndex
+            self.reededGlassView.setWidthType(to: self.currentWidthIndex == 0 ? .narrow 
+                                                    : self.currentWidthIndex == 1 ? .default : .wide) {
                 // Effect Applying completed
                 self.activitiIndicator.stopAnimating()
             }
@@ -58,7 +55,9 @@ class ViewController: UIViewController {
             let newImage = self.imageNames.filter{ $0 != self.currentImageName}.randomElement() ?? ""
             self.currentImageName = newImage
             self.targetImageView.image = UIImage(named: self.currentImageName)
-            self.reededGlassView.applyReededGlassEffect(with: self.targetImageView) {
+            self.reededGlassView.applyReededGlassEffect(with: self.targetImageView, 
+                                                        widthType: self.currentWidthIndex == 0 ? .narrow
+                                                                    : self.currentWidthIndex == 1 ? .default : .wide) {
                 // Effect Applying completed
                 self.activitiIndicator.stopAnimating()
             }
