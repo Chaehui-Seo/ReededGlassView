@@ -21,7 +21,7 @@ public class ReededGlassView: UIView {
     public func setWidthType(to type: WidthType, completion: (() -> Void)? = nil) {
         guard let targetImageView = targetImageView else { return }
         // if targetImage exists (effect has applied before), apply reeded glass effect again to update width type
-        self.setReededGlassEffect(with: targetImageView, widthType: type) {
+        self.applyReededGlassEffect(with: targetImageView, widthType: type) {
             completion?()
         }
     }
@@ -31,7 +31,7 @@ public class ReededGlassView: UIView {
      - parameters:
         - imageView: UIImageView that you want to apply the reeded glass effect below
      */
-    public func setReededGlassEffect(with imageView: UIImageView,
+    public func applyReededGlassEffect(with imageView: UIImageView,
                                      widthType: WidthType = .default,
                                      completion: (() -> Void)? = nil) {
         self.widthType = widthType

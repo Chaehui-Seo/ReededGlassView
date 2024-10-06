@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(activitiIndicator)
-        reededGlassView.setReededGlassEffect(with: targetImageView)
+        reededGlassView.applyReededGlassEffect(with: targetImageView, widthType: .default)
     }
 
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
             let newImage = self.imageNames.filter{ $0 != self.currentImageName}.randomElement() ?? ""
             self.currentImageName = newImage
             self.targetImageView.image = UIImage(named: self.currentImageName)
-            self.reededGlassView.setReededGlassEffect(with: self.targetImageView) {
+            self.reededGlassView.applyReededGlassEffect(with: self.targetImageView) {
                 // Effect Applying completed
                 self.activitiIndicator.stopAnimating()
             }
