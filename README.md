@@ -4,6 +4,19 @@
 # Requirements
 - iOS 13.0+
 
+# Installation
+### Swift Package Manager
+Use [Swift Package Manager](https://swift.org/package-manager/) by adding the following line to `Package.swift`:
+```
+dependencies: [
+ .package(url: "https://github.com/Chaehui-Seo/ReededGlassView.git", from: "1.0.0")
+]
+```
+### Cocoapods
+Use [Cocoapods](https://cocoapods.org/) by adding following line to `Podfile`:
+```
+pod "ReededGlassView", "~> 1.0.0"
+```
 
 # Usage
 ### 1. Add ReededGlassView
@@ -20,7 +33,7 @@ Background View
 Set reeded glass effect with a public method like below
 ```swift
 reededGlassView.applyReededGlassEffect(with: targetImageView)
-reededGlassView.applyReededGlassEffect(with: targetImageView, widthType: .default) // Adding width type is available
+reededGlassView.applyReededGlassEffect(with: targetImageView, widthType: .narrow) // Adding width type is available. (Default value is WidthType.default)
 ```
 
 # Customizing options
@@ -29,6 +42,10 @@ You can choose width type (among narrow, default, wide)
 | :-: | :-: | :-: |
 | ![image](https://github.com/user-attachments/assets/80976da9-ac5e-4a9e-8a59-7418773c2793) | ![image](https://github.com/user-attachments/assets/5e6ae805-26b2-411d-867a-78476e71863b) | ![image](https://github.com/user-attachments/assets/38107342-4909-442a-ae27-d6423a9e331f) |
 ```swift
+// You can set the width type when applying the effect in the first place by adding a parameter,
+reededGlassView.applyReededGlassEffect(with: targetImageView, widthType: .default)
+
+// or you can also set it with a separate method.
 reededGlassView.setWidthType(to: .default) // .narrow, .wide
 ```
 
