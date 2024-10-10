@@ -43,7 +43,7 @@ public class ReededGlassView: UIView {
         }
         self.targetImageView = imageView
         self.clipsToBounds = true
-        self.backgroundColor = .clear
+        self.backgroundColor = targetImageView?.superview?.backgroundColor ?? .clear
         
         // Calculate x points to add subviews
         var glassWidth: CGFloat = widthType.rawValue
