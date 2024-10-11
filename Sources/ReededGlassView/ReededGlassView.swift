@@ -149,7 +149,7 @@ public class ReededGlassView: UIView {
         currentFilter?.setValue(radius, forKey: kCIInputRadiusKey)
         guard let image = currentFilter?.outputImage else { return nil }
         
-        let newExtent = beginImage.extent.insetBy(dx: -image.extent.origin.x * 0.5, dy: -image.extent.origin.y * 0.5)
+        let newExtent = beginImage.extent.insetBy(dx: 10.5, dy: 10.5)
         guard let final = context.createCGImage(image, from: newExtent) else {
             return nil
         }
