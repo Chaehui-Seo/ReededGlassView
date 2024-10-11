@@ -69,34 +69,22 @@ public class ReededGlassView: UIView {
     
     private func addReededGlassSubviews(in xPosition: CGFloat, width: CGFloat) {
         guard let targetImageView = targetImageView else { return }
-        // 1. Get bigger image than it's frame, so that we can shrink it like the image is compressed horizontally
-        // Basically, get 2 times bigger image, by adding (glassWidth / 2) back and forth
-        // In brief, add three section below.
-        // - A section
-        //      - X point = xPosition - (glassWidth / 2)
-        //      - Width = glassWidth / 2
-        // - B section
-        //      - X point = xPosition
-        //      - Width = glassWidth
-        // - C section
-        //      - X point = xPosition + glassWidth
-        //      - Width = glassWidth / 2
-        
+
         var shrinkImageXPosition: CGFloat = 0 // xPosition relative to 'self'
-        let shrinkImageWidth: CGFloat = width * 2
+        let shrinkImageWidth: CGFloat = width * 2 // fixed width
  
         if self.frame.minX + xPosition - (width / 2) >= targetImageView.frame.minX
             && self.frame.minX + xPosition + (width) + (width / 2) <= targetImageView.frame.maxX {
-            // CASE 1) Basic case. Able to get entire A, B, C sections.
+            // CASE 1) Basic case. Able to add (width / 2) backward and forward
             shrinkImageXPosition = xPosition - (width / 2)
         } else {
             if self.frame.minX + xPosition - (width / 2) < targetImageView.frame.minX {
-                // CASE 2) Unable to get partial A section
+                // CASE 2) Unable to add complete (width / 2) forward
                 shrinkImageXPosition = targetImageView.frame.minX - self.frame.minX // minX of imageView relative to 'self'
             } else {
-                // CASE 3) Unable to get partial C section, and partial B section.
+                // CASE 3) Unable to add complete (width / 2) backward
                 let remainedWidth = shrinkImageWidth - (targetImageView.frame.maxX - (self.frame.minX + xPosition))
-                shrinkImageXPosition = xPosition - remainedWidth
+                shrinkImageXPosition = xPosition - remainedWidth // targetImageView's endPoint - (width * 2)
             }
         }
         
