@@ -3,7 +3,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ReededGlassView'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Assistant for Reeded Glass UI in iOS'
   
   # Set Swift version
