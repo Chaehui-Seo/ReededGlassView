@@ -9,13 +9,13 @@
 Use [Swift Package Manager](https://swift.org/package-manager/) by adding the following line to `Package.swift`:
 ```
 dependencies: [
- .package(url: "https://github.com/Chaehui-Seo/ReededGlassView.git", from: "1.0.0")
+ .package(url: "https://github.com/Chaehui-Seo/ReededGlassView.git", from: "1.0.1")
 ]
 ```
 ### Cocoapods
-Use [Cocoapods](https://cocoapods.org/) by adding following line to `Podfile`:
+Use [Cocoapods](https://cocoapods.org/) by adding the following line to `Podfile`:
 ```
-pod "ReededGlassView", "~> 1.0.0"
+pod "ReededGlassView", "~> 1.0.1"
 ```
 
 # Usage
@@ -45,7 +45,7 @@ You can choose width type (among narrow, default, wide)
 // You can set the width type when applying the effect in the first place by adding a parameter,
 reededGlassView.applyReededGlassEffect(with: targetImageView, widthType: .default)
 
-// or you can also set it with a separate method.
+// or you can also set it using a separate method.
 reededGlassView.setWidthType(to: .default) // .narrow, .wide
 ```
 
