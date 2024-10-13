@@ -101,7 +101,7 @@ public class ReededGlassView: UIView {
         view.addSubview(image)
         
         let croppedImage = makeImage(from: view) // get UIImage from the view
-        let temp = appleGaussianBlur(toImage: croppedImage, radius: 7) ?? UIImage()
+        let temp = applyGaussianBlur(toImage: croppedImage, radius: 7) ?? UIImage()
         let croppedImageView = UIImageView(image: temp)
         croppedImageView.contentMode = .scaleToFill
         croppedImageView.frame = CGRect(x: xPosition, y: 0, width: width, height: self.frame.height + 5)
@@ -129,7 +129,7 @@ public class ReededGlassView: UIView {
      Apply Gaussian blur effect to UIImage
      - Parameter : target UImage that want to apply effect
      */
-    private func appleGaussianBlur(toImage currentImage: UIImage, radius : Float) -> UIImage? {
+    private func applyGaussianBlur(toImage currentImage: UIImage, radius : Float) -> UIImage? {
         let context: CIContext = CIContext()
         let currentFilter = CIFilter(name: "CIGaussianBlur")
         guard let beginImage = CIImage(image: currentImage) else { return nil }
